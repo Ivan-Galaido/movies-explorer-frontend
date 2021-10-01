@@ -103,6 +103,24 @@ export const cards = [
     },
     saved: false,
   },
+  {
+    id: 12,
+    nameRU: "В погоне за Бенкси",
+    duration: 27 * 60,
+    image: {
+      url: card4,
+    },
+    saved: false,
+  },
+  {
+    id: 13,
+    nameRU: "В погоне за Бенкси",
+    duration: 27 * 60,
+    image: {
+      url: card4,
+    },
+    saved: false,
+  },
 ];
     /* export const PROPS_PROFILE = {
   inputsList: [
