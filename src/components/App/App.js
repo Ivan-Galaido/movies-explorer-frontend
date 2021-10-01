@@ -9,13 +9,14 @@ import Login from "../Login/Login";
 import Register from "../Register/Register";
 import Profile from "../Profile/Profile";
 import Movies from "../Movies/Movies";
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import { cards } from "../../utils/constants";
+/*import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import MoviesApi from "../../utils/MoviesApi";
 import MainApi from "../../utils/MainApi";
 import { MOVIES_API_SETTINGS, SHORT_MOVIE_MINUTES } from "../../utils/constants";
 import Preloader from "../Preloader/Preloader";
-import InformationPopup from "../InformationPopup/InformationPopup";
+import InformationPopup from "../InformationPopup/InformationPopup"; */
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -280,7 +281,6 @@ function App() {
   return (
     <CurrentUserContext.Provider value={{ ...currentUser }}>
       <div className="page">
-        {/*Не выводим шапук на странице регистрации, авторизации и ошибки*/}
         <Switch>
           <Route path="/error"/>
           <Route path="/signin"/>
@@ -295,7 +295,12 @@ function App() {
           <Route exact path="/">
             <Main/>
           </Route>
-          <ProtectedRoute path="/movies" condition={loggedIn} to="/signin">
+          <Route path="/movies">
+            <Movies cards={cards}/>
+          </Route>
+          <Route path="/saved-movies">
+            <Movies cards={cards.filter(item => item.saved)}/>
+         /* <ProtectedRoute path="/movies" condition={loggedIn} to="/signin">
             <Movies
               moviesCards={moviesCards}
               usersMoviesCards={usersMoviesCards}
@@ -324,7 +329,7 @@ function App() {
             <Register onRegistration={handleRegistration}/>
           </ProtectedRoute>
           <Route path="/error">
-            <Error message={error.message} status={error.status}/>
+            <Error message={error.message} status={error.status}/> */
           </Route>
           <Redirect to="/error"/>
         </Switch>
