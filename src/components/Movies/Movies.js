@@ -3,27 +3,12 @@ import SearchForm from "./SearchForm/SearchForm";
 import "./Movies.css";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
 
-function Movies({
-  moviesCards,
-  usersMoviesCards,
-  countCards,
-  onIncCountOfCards,
-  onSaveMovieCard,
-  onDeleteMovieCard,
-  onChangeFilters,
-}) {
+function Movies({cards}) {
   return (
     <section className="movies">
-      <SearchForm
-        onChangeFilters={onChangeFilters}/>
-      <MoviesCardList
-        moviesCards={moviesCards}
-        usersMoviesCards={usersMoviesCards}
-        countCards={countCards}
-        onSaveMovieCard={onSaveMovieCard}
-        onDeleteMovieCard={onDeleteMovieCard}/>
-      {((moviesCards && moviesCards.length) || 0) > countCards &&
-      <button className="movies__more" onClick={onIncCountOfCards}>Ещё</button>}
+      <SearchForm/>
+      <MoviesCardList cards={cards}/>
+      {cards.length>12 && <button className="movies__more">Ещё</button>}
     </section>
   );
 }

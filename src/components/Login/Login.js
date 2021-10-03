@@ -1,13 +1,16 @@
 import Auth from "../Auth/Auth";
 import React from "react";
-import { PROPS_LOGIN } from "../../utils/constants";
+import { propsAuthLogIn } from '../../utils/constants';
+import { useHistory } from "react-router";
 
-function Login({ onAuthorization }) {
-  const handleSignIn = (data) => {
-    onAuthorization(data);
-  };
+function Login({onSignIn}) {
+  const history = useHistory();
+  const handleSignIn = () => {
+    onSignIn();
+    history.push('/');
+  }
   return (
-    <Auth {...PROPS_LOGIN} onSubmit={handleSignIn}/>
+    <Auth {...propsAuthLogIn} onSubmit={handleSignIn}/>
   );
 }
 
