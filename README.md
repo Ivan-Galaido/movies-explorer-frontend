@@ -19,3 +19,5 @@
 ## Ссылка
 
 https://movies-ex.nomoredomains.club
+
+Public ip : 178.154.246.61
