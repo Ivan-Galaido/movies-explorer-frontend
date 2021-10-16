@@ -5,7 +5,21 @@ export default class Api {
     this._credentials = credentials;
   }
 
+  _getProxy({ relativePath, method, body = "", headers = {} }) {
+    const options = {
+      method,
+      headers: { ...this._headers, ...headers },
+    };
 
+    if (body) {
+      options.body = body;
+    }
+    if (this._credentials) {
+      options.credentials = this._credentials;
+    }
+
+    return fetch(`${this._baseUrl}${relativePath}`, options);
+  }
   async _handleResponse(response) {
     const description = await response.json();
 
