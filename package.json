@@ -1,5 +1,6 @@
 {
   "name": "movies-explorer-frontend",
+  "deploy": "npm run build && scp -r ./build/* movies-explorer@178.154.246.61:/home/movies-explorer/frontend/movies-explorer-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
