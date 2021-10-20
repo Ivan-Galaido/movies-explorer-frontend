@@ -19,7 +19,7 @@ function Portfolio() {
           </a>
         </li>
         <li className="portfolio__item">
-          <a className="portfolio__link" href="https://api.mestechko.students.nomoredomains.monster" target="_blank">
+          <a className="portfolio__link" href="https://ivan-galaido.github.io/mesto/" target="_blank">
             <p className="portfolio__name">Одностроничное приложение</p>
             <div className="portfolio__icon">↗</div>
           </a>
